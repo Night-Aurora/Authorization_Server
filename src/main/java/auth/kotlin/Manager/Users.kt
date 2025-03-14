@@ -1,6 +1,7 @@
 package auth.kotlin.Manager
 
 import auth.kotlin.Server
+import java.io.DataOutputStream
 import java.math.BigInteger
 import java.net.Socket
 import java.security.MessageDigest
@@ -63,7 +64,7 @@ class Users {
         return false
     }
 
-    fun Encryption(password: String): String {
+    private fun Encryption(password: String): String {
         var sha: BigInteger? = null
         val inputData = password.replace(" ".toRegex(), "").toByteArray()
         try {
@@ -86,4 +87,5 @@ class Users {
             return this.password == password
         }
     }
+
 }
